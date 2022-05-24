@@ -19,14 +19,40 @@
                   <h1 class="btn btn-primary">
                       Ping Pong
                   </h1>
-                  <button class="btn btn-warning">Help</button>
+                  <button class="btn btn-warning" data-toggle="modal" data-target="#help">Help</button>
                   <br>
                   <br>
                   <button class="btn btn-success" onclick="startGame()">Play</button>
+                  <br><br>
                   <label id="status" class="btn btn-info"></label>
                   <br>
+                  <br>
                   <div id="canvas">
-
+  
+                  </div>
+                  <br>
+                  <br>
+                  <button class="btn btn-danger"onclick="retry()">Reset</button>
+                  <br>
+                  <br>
+                  <div id="help" class="modal fade">
+                   <div class="modal-dialog">
+                    <div class="modal-content">
+                     <div class="modal-header">
+                      <button class="close" data-dismiss="modal"></button>
+                      <h3>Instructions</h3>
+                     </div>
+                     <div class="modal-body">
+                    <ol>
+                        <li>First keep your laptop screen straight</li>
+                        <li>Move your self approximately 3-4 feet away from the laptop</li>
+                        <li>Move you right wrist in a acending descending manner, a red dot should appear on it</li>
+                        <li>Now press the play button</li>
+                        <li>The red paddle is yours which will move along the right wrist</li>
+                    </ol>
+                     </div>
+                    </div>
+                   </div>
                   </div>
               </center>
         <script src="main.js"></script>
