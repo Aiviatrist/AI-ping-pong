@@ -1,6 +1,8 @@
 
 /*created by prashant shukla */
-
+rx=0;
+ry=0;
+sc=0;
 var paddle2 =10,paddle1=10;
 
 var paddle1X = 10,paddle1Height = 110;
@@ -28,6 +30,7 @@ function setup(){
   vidoe.size(700,600);
   video.hide();
   posenet=ml5.poseNet(video,modelloaded);
+  posenet.on("pose",gotlol);
 }
 function modelloaded(){
   console.log("model is loaded!");
@@ -63,7 +66,7 @@ image(video,0,0,700,600);
     
     //function midline call
     midline();
-    
+    //best number//
     //funtion drawScore call 
    drawScore();
    
@@ -72,6 +75,11 @@ image(video,0,0,700,600);
    
    //function move call which in very important
     move();
+    if(sc>0.2){
+      fill("red");
+      stroke("red");
+      circle(rx,ry,30);
+    }
 }
 
 
@@ -169,4 +177,10 @@ function paddleInCanvas(){
     mouseY =0;
   }  
 }
-
+function gotlol(results){
+  if(results.length>0){
+    rx=results[0].pose.rightWrist.x;
+    ry=results[0].pose.rightWrist.y;
+    sc=results[0].pose.keypoints[10].score;
+  }
+}
