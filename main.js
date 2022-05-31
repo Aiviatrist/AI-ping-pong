@@ -22,7 +22,7 @@ var ball = {
     dx:3,
     dy:3
 }
-
+game_statius="";
 function setup(){
   var canvas =  createCanvas(700,600);
   canvas.parent("canvas");
@@ -39,7 +39,7 @@ function modelloaded(){
 function draw(){
 image(video,0,0,700,600);
  background(0); 
-
+ if(game_statius=="start"){
  fill("black");
  stroke("black");
  rect(680,0,20,700);
@@ -80,6 +80,7 @@ image(video,0,0,700,600);
       stroke("red");
       circle(rx,ry,30);
     }
+  }
 }
 
 
@@ -104,7 +105,10 @@ function midline(){
     }
 }
 
-
+function startGame(){
+  game_statius="start";
+  document.getElementById("status").innerHTML="Game is loaded";
+}
 //function drawScore show scores
 function drawScore(){
     textAlign(CENTER);
